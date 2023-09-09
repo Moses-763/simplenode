@@ -1,0 +1,15 @@
+{
+  "name": "simplenode",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Moses-763/simplenode.git",
+  "author": "Moses-763 <114230373+Moses-763@users.noreply.github.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index",
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "mocha": "^10.2.0"
+  }
+}
