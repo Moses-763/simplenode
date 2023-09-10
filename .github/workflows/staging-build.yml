@@ -1,8 +1,5 @@
 name: build
-on: 
-  push:
-    paths:
-      - '**.js'
+on: push
 jobs:
   build:
     runs-on: ${{ matrix.os }}
@@ -14,6 +11,15 @@ jobs:
           - os: macos-latest
             node: 18
     steps:
+      - name: My first step
+        env: 
+          MY_VAR: Hi there! my name is
+          FIRST_NAME: Lakeside
+          LAST_NAME: Smith
+        run: |
+          echo $MY_VAR
+          echo $FIRST_NAME
+          echo $LAST_NAME
       - name: Use node.js ${{ matrix.node }}
         uses: actions/checkout@v3
       - name: Setup node
