@@ -1,0 +1,25 @@
+name: test
+
+on: 
+  pull_request:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node: [16]
+        os: [macos-latest, windows-latest]
+        include:
+          - node: 18
+            os: ubuntu-latest
+    steps:
+      - name: Use node ${{ matrix.node }}
+        uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm install
+      - run: npm test
